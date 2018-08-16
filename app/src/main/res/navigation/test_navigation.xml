@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/test_navigation"
+    app:startDestination="@+id/fragment_first">
+<fragment android:id="@+id/fragment_first"
+    android:name="com.intretech.app.navigationdemo.FirstFragment"
+          tools:layout="@layout/fragment_first">
+    <action android:id="@+id/test_fragment_first"
+        app:destination="@+id/fragment_second"></action>
+</fragment>
+    <fragment android:id="@+id/fragment_second"
+              android:name="com.intretech.app.navigationdemo.SecondFragment"
+              tools:layout="@layout/fragment_first"
+         >
+        <action android:id="@+id/test_fragment_second"
+                app:destination="@+id/fragment_third"></action>
+    </fragment>
+    <fragment android:id="@+id/fragment_third"
+              android:name="com.intretech.app.navigationdemo.ThirdFragment"
+              tools:layout="@layout/fragment_first">
+        <action android:id="@+id/test_fragment_third"
+                app:destination="@+id/fragment_first"
+                ></action>
+        <action android:id="@+id/action_pop_toFirst"
+            app:popUpTo="@id/fragment_first"></action>
+    </fragment>
+</navigation>
